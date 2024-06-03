@@ -1,0 +1,11 @@
+---
+name: GitHub docker container deno action template
+description: A template for containerized GitHub Actions with Deno
+inputs:
+  timestamp:
+    description: Current timestamp
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
