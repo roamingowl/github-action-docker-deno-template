@@ -10,7 +10,7 @@ function getInputs() {
 async function run() {
   const { timestamp } = getInputs();
 
-  const outputText = `Timestamp is: ${timestamp}`;
+  const outputText = `Timestamp is ${timestamp}`;
 
   core.info(`Setting up output to:\n${outputText}`);
 
