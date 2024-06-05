@@ -12,6 +12,7 @@ on:
 
 jobs:
     tests:
+        name: Tests
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
@@ -37,6 +38,7 @@ jobs:
             deno test
 
     real-action:
+      name: Deno action
       needs:
         - tests
       runs-on: ubuntu-latest
