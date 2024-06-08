@@ -3,7 +3,7 @@
     "check": "deno fmt --check",
     "test:coverage": "deno test --allow-env --coverage=coverage",
     "coverage:badge": "deno task test:coverage; deno coverage ./coverage --lcov > coverage.lcov; rm -rf coverage; deno run --allow-read --allow-write src/badge.ts; rm coverage.lcov",
-    "test": "deno test --allow-env",
+    "test": "deno test --allow-env --quiet",
     "lock": "deno cache --lock-write src/index.ts"
   }
 }
