@@ -11,6 +11,8 @@ await build({
     // see JS docs for overview and more options
     deno: true,
   },
+  scriptModule: false,
+  declaration: false,
   package: {
     // package.json properties
     name: "your-package",
@@ -27,6 +29,6 @@ await build({
   },
   postBuild() {
     // steps to run after building and before running the tests
-    Deno.copyFileSync("README.md", "dist/README.md");
+    // Deno.copyFileSync("README.md", "dist/README.md");
   },
 });
