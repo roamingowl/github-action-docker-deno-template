@@ -14,7 +14,9 @@ cd dist
 npx esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=index.js
 ```
 
-and change action.yaml to use `runs: node dist/index.js` instead of `runs: deno dist/index.ts`:
+and change action.yaml to use `runs: node dist/index.js` instead of
+`runs: deno dist/index.ts`:
+
 ```yaml
 ---
 name: GitHub docker container deno action template
@@ -26,6 +28,5 @@ inputs:
 
 runs: 
   using: node20
-  main: 'dist/index.js'  
-
+  main: 'dist/index.js'
 ```
