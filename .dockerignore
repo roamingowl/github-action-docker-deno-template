@@ -3,3 +3,6 @@ temp
 action.yaml
 LICENSE
 README.md
+src/__tests__
+coverage
+.github
