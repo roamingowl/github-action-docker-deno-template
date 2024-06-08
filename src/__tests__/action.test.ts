@@ -1,6 +1,12 @@
 import { describe, it } from "jsr:@std/testing/bdd";
-import { spy, assertSpyCalls, assertSpyCall, returnsNext, stub } from "jsr:@std/testing@0.225.0/mock";
-import { run, _internals } from "../action.ts";
+import {
+  assertSpyCall,
+  assertSpyCalls,
+  returnsNext,
+  spy,
+  stub,
+} from "jsr:@std/testing@0.225.0/mock";
+import { _internals, run } from "../action.ts";
 
 describe("action", () => {
   it("should set output", async () => {
