@@ -11,10 +11,10 @@ on:
       - main
 
 jobs:
-    tests:
-        name: Tests
-        runs-on: ubuntu-latest
-        steps:
+    format-lint:
+      name: Format and lint
+      runs-on: ubuntu-latest
+      steps:
         - name: Checkout
           uses: actions/checkout@v4
 
@@ -31,6 +31,16 @@ jobs:
           shell: bash
           run: |
             deno lint
+    tests:
+      name: Unit tests
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - uses: denoland/setup-deno@v1
+          with:
+            deno-version: v1.x
 
         - name: Run tests
           shell: bash
@@ -41,6 +51,7 @@ jobs:
       name: Deno action
       needs:
         - tests
+        - format-lint
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
