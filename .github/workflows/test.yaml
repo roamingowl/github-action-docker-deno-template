@@ -11,7 +11,7 @@ on:
       - main
 
 jobs:
-    test:
+    tests:
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
@@ -36,6 +36,11 @@ jobs:
           run: |
             deno test
 
+    real-action:
+      needs:
+        - tests
+      runs-on: ubuntu-latest
+      steps:
         - name: Run action
           uses: .
           with:
