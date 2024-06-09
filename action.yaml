@@ -6,6 +6,11 @@ inputs:
     description: Current timestamp
     required: true
 
+branding:
+  icon: 'book'
+  color: 'yellow'
+
+
 runs:
   using: docker
   image: Dockerfile
