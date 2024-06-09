@@ -45,7 +45,7 @@ jobs:
         - name: Run tests
           shell: bash
           run: |
-            deno test
+            deno run test
 
     real-action:
       name: Deno action
