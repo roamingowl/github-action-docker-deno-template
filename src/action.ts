@@ -7,7 +7,7 @@ export function getInputs() {
 }
 
 export function setOutput(name: string, value: string) {
-    core.setOutput(name, value);
+  core.setOutput(name, value);
 }
 
 // deno-lint-ignore require-await
