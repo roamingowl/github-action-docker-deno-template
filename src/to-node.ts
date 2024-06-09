@@ -5,28 +5,28 @@ import { build, emptyDir } from "jsr:@deno/dnt";
 await emptyDir("./dist");
 
 await build({
-    entryPoints: ["./src/index.ts"],
-    outDir: "./dist",
-    shims: {
-        // see JS docs for overview and more options
-        deno: true,
+  entryPoints: ["./src/index.ts"],
+  outDir: "./dist",
+  shims: {
+    // see JS docs for overview and more options
+    deno: true,
+  },
+  package: {
+    // package.json properties
+    name: "your-package",
+    version: Deno.args[0],
+    description: "Your package.",
+    license: "MIT",
+    repository: {
+      type: "git",
+      url: "git+https://github.com/username/repo.git",
     },
-    package: {
-        // package.json properties
-        name: "your-package",
-        version: Deno.args[0],
-        description: "Your package.",
-        license: "MIT",
-        repository: {
-            type: "git",
-            url: "git+https://github.com/username/repo.git",
-        },
-        bugs: {
-            url: "https://github.com/username/repo/issues",
-        },
+    bugs: {
+      url: "https://github.com/username/repo/issues",
     },
-    postBuild() {
-        // steps to run after building and before running the tests
-        Deno.copyFileSync("README.md", "dist/README.md");
-    },
+  },
+  postBuild() {
+    // steps to run after building and before running the tests
+    Deno.copyFileSync("README.md", "dist/README.md");
+  },
 });
