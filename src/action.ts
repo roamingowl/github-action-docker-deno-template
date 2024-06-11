@@ -10,7 +10,6 @@ export function setOutput(name: string, value: string) {
   core.setOutput(name, value);
 }
 
-// deno-lint-ignore require-await
 export async function run() {
   const { timestamp } = _internals.getInputs();
 
