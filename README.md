@@ -23,12 +23,14 @@ Remove or update [CODEOWNERS](./CODEOWNERS) file.
 
 ## Linting and formatting
 
-To lint the code run 
+To lint the code run
+
 ```bash
 deno lint
 ```
 
-To auto-format all `.ts`/`.js` and `.json` files run:
+To auto-format all `.ts`, `.js`, `.md` and `.json` files run:
+
 ```angular2html
 deno fmt
 ```
@@ -44,9 +46,11 @@ deno test
 It is recommended to follow
 [standard GitHub action versioning](https://github.com/actions/toolkit/blob/main/docs/action-versioning.md).
 Examples:
+
 - use tags like `v1`, `v1.0.0` etc.
 
 In case you used new import or library, update lock file by running:
+
 ```bash
 deno task lock
 ```
