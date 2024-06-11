@@ -43,11 +43,11 @@ deno test
 
 ## Releasing
 
-It is recommended to follow
-[standard GitHub action versioning](https://github.com/actions/toolkit/blob/main/docs/action-versioning.md).
-Examples:
+Reformat files before pushing:
 
-- use tags like `v1`, `v1.0.0` etc.
+```bash
+deno fmt
+```
 
 In case you used new import or library, update lock file by running:
 
@@ -65,7 +65,13 @@ deno task coverage:badge
 
 to generate it.
 
-Then create/update appropriate tags:
+It is recommended to follow
+[standard GitHub action versioning](https://github.com/actions/toolkit/blob/main/docs/action-versioning.md).
+Examples:
+
+- use tags like `v1`, `v1.0.0` etc.
+
+Create/update appropriate tags:
 
 ```bash
 #new version tag
