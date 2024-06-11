@@ -21,6 +21,18 @@ from this template and update it to your needs.
 
 Remove or update [CODEOWNERS](./CODEOWNERS) file.
 
+## Linting and formatting
+
+To lint the code run 
+```bash
+deno lint
+```
+
+To auto-format all `.ts`/`.js` and `.json` files run:
+```angular2html
+deno fmt
+```
+
 ## Running tests
 
 ```bash
@@ -32,8 +44,12 @@ deno test
 It is recommended to follow
 [standard GitHub action versioning](https://github.com/actions/toolkit/blob/main/docs/action-versioning.md).
 Examples:
-
 - use tags like `v1`, `v1.0.0` etc.
+
+In case you used new import or library, update lock file by running:
+```bash
+deno task lock
+```
 
 There is no need for running extra build step here like it is with
 [javascript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action).

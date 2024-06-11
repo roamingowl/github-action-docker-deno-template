@@ -1,4 +1,5 @@
 import * as core from "npm:@actions/core@1.10.1";
+import { $ } from "npm:zx@8.1.2";
 
 export function getInputs() {
   return {
@@ -19,7 +20,9 @@ export async function run() {
 
   _internals.setOutput("text", outputText);
 
-  await core.summary.addRaw(`Action output text: \`${outputText}\``).write();
+  //TODO This produces error: error: Uncaught (in promise) Error: Unable to access summary file: '/github/file_commands/step_summary_60570fc5-b29a-41cd-9f56-8536f025656a'. Check if the file has correct read/write permissions.
+  //await core.summary.addRaw(`Action output text: \`${outputText}\``).write()
+  await $`echo 'Output text is: ${outputText}' >> $GITHUB_STEP_SUMMARY`;
 
   //TODO Add creating output file that wil be later added to artefact
 }
