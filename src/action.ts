@@ -22,6 +22,7 @@ export async function run() {
 
   //TODO This produces error: error: Uncaught (in promise) Error: Unable to access summary file: '/github/file_commands/step_summary_60570fc5-b29a-41cd-9f56-8536f025656a'. Check if the file has correct read/write permissions.
   //await core.summary.addRaw(`Action output text: \`${outputText}\``).write()
+  //TODO prints one extra $ like Output text is: $Timestamp is 1717453929
   await $`echo 'Output text is: ${outputText}' >> $GITHUB_STEP_SUMMARY`;
 
   //TODO Add creating output file that wil be later added to artefact
