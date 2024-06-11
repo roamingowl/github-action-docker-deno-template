@@ -19,6 +19,10 @@ export async function run() {
   core.info(`Setting up output to:\n${outputText}`);
 
   _internals.setOutput("text", outputText);
+
+  await core.summary.addRaw(`Action output text: \`${outputText}\``).write();
+
+  //TODO Add creating output file that wil be later added to artefact
 }
 
 /** Used for testing. Taken from official deno docs https://docs.deno.com/runtime/manual/basics/testing/mocking#spying */

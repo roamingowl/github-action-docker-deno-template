@@ -6,10 +6,13 @@ inputs:
     description: Current timestamp
     required: true
 
+outputs:
+  text:
+    description: Generated textual output from action
+
 branding:
   icon: 'book'
   color: 'yellow'
-
 
 runs:
   using: docker
