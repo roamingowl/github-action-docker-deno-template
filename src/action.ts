@@ -33,6 +33,7 @@ export async function run() {
   const { id, size } = await artifact.uploadArtifact(
     "action-output",
     ["./output.txt"],
+    ".",
     {
       retentionDays: 1,
     },

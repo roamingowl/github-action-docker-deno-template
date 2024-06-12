@@ -2,9 +2,33 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
+      "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0",
+      "jsr:@std/testing": "jsr:@std/testing@0.225.1",
+      "jsr:@std/testing@0.225.0": "jsr:@std/testing@0.225.0",
       "npm:@actions/artifact@2.1.7": "npm:@actions/artifact@2.1.7_@octokit+core@3.6.0_@protobuf-ts+plugin@2.9.4",
       "npm:@actions/core@1.10.1": "npm:@actions/core@1.10.1",
       "npm:zx@8.1.2": "npm:zx@8.1.2"
+    },
+    "jsr": {
+      "@std/assert@0.226.0": {
+        "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
+        "dependencies": [
+          "jsr:@std/internal@^1.0.0"
+        ]
+      },
+      "@std/internal@1.0.0": {
+        "integrity": "ac6a6dfebf838582c4b4f61a6907374e27e05bedb6ce276e0f1608fe84e7cd9a"
+      },
+      "@std/testing@0.225.0": {
+        "integrity": "53ca3c47eb121acabda633fd50699c4b33da6a7ce3e5bb34d7277d15df5f0a6e",
+        "dependencies": [
+          "jsr:@std/assert@^0.226.0"
+        ]
+      },
+      "@std/testing@0.225.1": {
+        "integrity": "1a11119553fc33410abe8566731ae513c53e73db040cedbf901858fbd7587819"
+      }
     },
     "npm": {
       "@actions/artifact@2.1.7_@octokit+core@3.6.0_@protobuf-ts+plugin@2.9.4": {
