@@ -63,7 +63,7 @@ jobs:
         - name: Run action
 #          can't use ./ here because pre/post hooks wouldn't work
 #          ending up with just warning: Warning: `pre` execution is not supported for local action from './'
-          uses: roamingowl/github-action-docker-deno-template@${{ github.ref_name }}
+          uses: roamingowl/github-action-docker-deno-template@main
           with:
             timestamp: 1717453929
 
