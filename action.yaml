@@ -1,10 +1,14 @@
 ---
 name: GitHub docker container deno action template
+
 description: A template for containerized GitHub Actions with Deno
+
 inputs:
   timestamp:
     description: Current timestamp
     required: true
+
+author: roamingowl
 
 outputs:
   text:
@@ -17,3 +21,4 @@ branding:
 runs:
   using: docker
   image: Dockerfile
+  pre-entrypoint: 'deno run --cached-only --allow-all /action/src/pre.ts
