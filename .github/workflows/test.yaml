@@ -61,6 +61,8 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Run action
+#          can't use ./ here because pre/post hooks wouldn't work
+#          ending up with just warning: Warning: `pre` execution is not supported for local action from './'
           uses: roamingowl/github-action-docker-deno-template@${{ gitub.ref_name }}
           with:
             timestamp: 1717453929
