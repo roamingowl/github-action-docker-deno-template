@@ -10,6 +10,9 @@ on:
     branches:
       - main
 
+  workflow_dispatch: {}
+
+
 jobs:
     format-lint:
       name: Format and lint
@@ -61,3 +64,9 @@ jobs:
           uses: ./
           with:
             timestamp: 1717453929
+
+        - name: Upload Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: action_files
+            path: ${{ github.workspace }}
