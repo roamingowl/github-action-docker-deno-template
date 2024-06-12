@@ -18,17 +18,21 @@ deno action.
 from this template and update it to your needs.
 
 ## Features
+
 - example of docker container action using deno
 - writing step summary from the action (workaround)
 - uploading artifact (workaround)
 
-Pros: 
+Pros:
+
 - it's deno!
 - no huge bundles and slow actions download in workflows
-- can be bundled to nodejs with [@deno/dnt](https://github.com/denoland/dnt) and then whole action switched to js
+- can be bundled to nodejs with [@deno/dnt](https://github.com/denoland/dnt) and
+  then whole action switched to js
 - no more node_modules
 
 Cons:
+
 - first un-cached run takes longer due to container build
 - deno support in some IDEs is not great. Writing code might be painful
 - no direct support deno action in GitHub. Similar to js `using: 'node20'`
