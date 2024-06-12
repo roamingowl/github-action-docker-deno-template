@@ -12,11 +12,11 @@ describe("action", () => {
   it("should set output", async () => {
     const outputSpy = spy(_internals, "setOutput");
     stub(_internals, "getInputs", returnsNext([{ timestamp: "1239" }]));
-    stub(
-      _internals,
-      "uploadArtifact",
-      returnsNext([Promise.resolve({ id: 1, size: 2 })]),
-    );
+    // stub(
+    //   _internals,
+    //   "uploadArtifact",
+    //   returnsNext([Promise.resolve({ id: 1, size: 2 })]),
+    // );
 
     await run();
     assertSpyCall(outputSpy, 0, { args: ["text", "Timestamp is 1239"] });

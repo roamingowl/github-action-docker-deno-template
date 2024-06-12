@@ -1,6 +1,6 @@
 import * as core from "npm:@actions/core@1.10.1";
 import { $ } from "npm:zx@8.1.2";
-import { DefaultArtifactClient } from "npm:@actions/artifact@2.1.7";
+// import { DefaultArtifactClient } from "npm:@actions/artifact@2.1.7";
 
 export function getInputs() {
   return {
@@ -12,23 +12,26 @@ export function setOutput(name: string, value: string) {
   core.setOutput(name, value);
 }
 
-export async function uploadArtifact(
-  name: string,
-  filesList: string[],
-  retentionDays = 1,
-) {
-  const artifact = new DefaultArtifactClient();
-  const { id, size } = await artifact.uploadArtifact(
-    name,
-    filesList,
-    ".",
-    {
-      retentionDays,
-    },
-  );
-
-  return { id, size };
-}
+// export async function uploadArtifact(
+//   name: string,
+//   filesList: string[],
+//   retentionDays = 1,
+// ) {
+// const artifact = new DefaultArtifactClient();
+//doesn't work in deno for now.
+//throws error: Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'bun')
+//TODO https://github.com/roamingowl/github-action-docker-deno-template/issues/4
+// const { id, size } = await artifact.uploadArtifact(
+//   name,
+//   filesList,
+//   "/github/workspace",
+//   {
+//     retentionDays,
+//   },
+// );
+//
+// return { id, size };
+// }
 
 export async function run() {
   const { timestamp } = _internals.getInputs();
@@ -44,15 +47,15 @@ export async function run() {
   //TODO prints one extra $ like Output text is: $Timestamp is 1717453929
   await $`echo Output text is: ${outputText} >> $GITHUB_STEP_SUMMARY`;
 
-  //TODO Add creating output file that wil be later added to artefact
   await Deno.writeTextFile("./output.txt", outputText);
 
-  const { id, size } = await _internals.uploadArtifact("action-output", [
-    "./output.txt",
-  ]);
+  // doesn't work @see uploadArtifact function
+  // const { id, size } = await _internals.uploadArtifact("action-output", [
+  //   "./output.txt",
+  // ]);
 
-  console.log(`Created artifact with id: ${id} (bytes: ${size}`);
+  // console.log(`Created artifact with id: ${id} (bytes: ${size}`);
 }
 
 /** Used for testing. Taken from official deno docs https://docs.deno.com/runtime/manual/basics/testing/mocking#spying */
-export const _internals = { getInputs, setOutput, uploadArtifact };
+export const _internals = { getInputs, setOutput };
