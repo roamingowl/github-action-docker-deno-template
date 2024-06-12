@@ -3,7 +3,7 @@
 ![Action coverage](coverage.svg)
 ![Deno Badge](https://img.shields.io/badge/deno-%5E1.4.4-black)
 ![Docker Badge](https://img.shields.io/badge/docker-%5E26.1.1-blue)
-![Static Badge](https://img.shields.io/badge/actions%2Fcore-%5E1.10.1-green?logo=github)
+![Static Bad ge](https://img.shields.io/badge/actions%2Fcore-%5E1.10.1-green?logo=github)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=roamingowl_github-action-docker-deno-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=roamingowl_github-action-docker-deno-template)
 
 ## Description
@@ -16,6 +16,22 @@ deno action.
 
 [Create your own action repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template)
 from this template and update it to your needs.
+
+## Features
+- example of docker container action using deno
+- writing step summary from the action (workaround)
+- uploading artifact (workaround)
+
+Pros: 
+- it's deno!
+- no huge bundles and slow actions download in workflows
+- can be bundled to nodejs with [@deno/dnt](https://github.com/denoland/dnt) and then whole action switched to js
+- no more node_modules
+
+Cons:
+- first un-cached run takes longer due to container build
+- deno support in some IDEs is not great. Writing code might be painful
+- no direct support deno action in GitHub. Similar to js `using: 'node20'`
 
 ## Initial setup
 
