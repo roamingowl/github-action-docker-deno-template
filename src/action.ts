@@ -12,6 +12,24 @@ export function setOutput(name: string, value: string) {
   core.setOutput(name, value);
 }
 
+export async function uploadArtifact(
+  name: string,
+  filesList: string[],
+  retentionDays = 1,
+) {
+  const artifact = new DefaultArtifactClient();
+  const { id, size } = await artifact.uploadArtifact(
+    name,
+    filesList,
+    ".",
+    {
+      retentionDays,
+    },
+  );
+
+  return { id, size };
+}
+
 export async function run() {
   const { timestamp } = _internals.getInputs();
 
@@ -29,18 +47,12 @@ export async function run() {
   //TODO Add creating output file that wil be later added to artefact
   await Deno.writeTextFile("./output.txt", outputText);
 
-  const artifact = new DefaultArtifactClient();
-  const { id, size } = await artifact.uploadArtifact(
-    "action-output",
-    ["./output.txt"],
-    ".",
-    {
-      retentionDays: 1,
-    },
-  );
+  const { id, size } = await _internals.uploadArtifact("action-output", [
+    "./output.txt",
+  ]);
 
   console.log(`Created artifact with id: ${id} (bytes: ${size}`);
 }
 
 /** Used for testing. Taken from official deno docs https://docs.deno.com/runtime/manual/basics/testing/mocking#spying */
-export const _internals = { getInputs, setOutput };
+export const _internals = { getInputs, setOutput, uploadArtifact };
