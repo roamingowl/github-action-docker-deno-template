@@ -1,5 +1,6 @@
 import * as core from "npm:@actions/core@1.10.1";
 import { $ } from "npm:zx@8.1.2";
+import { DefaultArtifactClient } from "npm:@actions/artifact@2.1.7";
 
 export function getInputs() {
   return {
@@ -26,6 +27,18 @@ export async function run() {
   await $`echo Output text is: ${outputText} >> $GITHUB_STEP_SUMMARY`;
 
   //TODO Add creating output file that wil be later added to artefact
+  await Deno.writeTextFile("./output.txt", outputText);
+
+  const artifact = new DefaultArtifactClient();
+  const { id, size } = await artifact.uploadArtifact(
+    "action-output",
+    ["./output.txt"],
+    {
+      retentionDays: 1,
+    },
+  );
+
+  console.log(`Created artifact with id: ${id} (bytes: ${size}`);
 }
 
 /** Used for testing. Taken from official deno docs https://docs.deno.com/runtime/manual/basics/testing/mocking#spying */
