@@ -3,7 +3,7 @@
 ![Action coverage](coverage.svg)
 ![Deno Badge](https://img.shields.io/badge/deno-%5E1.4.4-black)
 ![Docker Badge](https://img.shields.io/badge/docker-%5E26.1.1-blue)
-![Static Bad ge](https://img.shields.io/badge/actions%2Fcore-%5E1.10.1-green?logo=github)
+![Static Bad ge](https://img.shields.io/badge/@actions%2Fcore-%5E1.10.1-green?logo=npm)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=roamingowl_github-action-docker-deno-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=roamingowl_github-action-docker-deno-template)
 
 ## Description
@@ -30,12 +30,15 @@ Pros:
 - can be bundled to nodejs with [@deno/dnt](https://github.com/denoland/dnt) and
   then whole action switched to js
 - no more node_modules
+- no prettier
+- no eslint
 
 Cons:
 
 - first un-cached run takes longer due to container build
 - deno support in some IDEs is not great. Writing code might be painful
 - no direct support deno action in GitHub. Similar to js `using: 'node20'`
+- writing tests (with mocks) in deno is not a good experience
 
 ## Initial setup
 
