@@ -22,3 +22,4 @@ runs:
   using: docker
   image: Dockerfile
   pre-entrypoint: "/action/src/pre.ts"
+  post-entrypoint: "/action/src/post.ts"
