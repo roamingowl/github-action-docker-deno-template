@@ -7,6 +7,7 @@ await emptyDir("./dist");
 await build({
   entryPoints: ["./src/index.ts"],
   outDir: "./dist",
+  test: false,
   shims: {
     // see JS docs for overview and more options
     deno: true,
@@ -21,12 +22,12 @@ await build({
       type: "git",
       url: "git+https://github.com/username/repo.git",
     },
-    bugs: {
-      url: "https://github.com/username/repo/issues",
-    },
+    // bugs: {
+    //   url: "https://github.com/username/repo/issues",
+    // },
   },
   postBuild() {
     // steps to run after building and before running the tests
-    Deno.copyFileSync("README.md", "dist/README.md");
+    // Deno.copyFileSync("README.md", "dist/README.md");
   },
 });

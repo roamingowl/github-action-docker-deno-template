@@ -28,7 +28,7 @@ Pros:
 - it's deno!
 - no huge bundles and slow actions download in workflows
 - can be bundled to nodejs with [@deno/dnt](https://github.com/denoland/dnt) and
-  then whole action switched to js
+  then whole action switched to js. But this is experimental and often fails with complex action with npm dependencies. So don't rely on this option too much...
 - no more node_modules
 - no prettier
 - no eslint
