@@ -21,4 +21,4 @@ branding:
 runs:
   using: docker
   image: Dockerfile
-  pre-entrypoint: "deno run --cached-only --allow-all /action/src/pre.ts"
+  pre-entrypoint: "/action/src/pre.ts"
